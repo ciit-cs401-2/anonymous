@@ -1,6 +1,6 @@
 <div class="flex flex-col w-full rounded-lg">
     <!-- Featured Image -->
-    <div class="h-120">
+    <div class="h-60 md:h-120">
         <img
             class="h-full w-full object-cover rounded-lg"
             src="{{ $featuredPosts->featured_image_url }}"
@@ -9,7 +9,7 @@
     </div>
 
     <!-- Content Box -->
-    <div class="bg-white p-8 flex flex-col justify-center rounded-lg w-[70%] -mt-50 self-center shadow-md">
+    <div class="bg-white p-8 flex flex-col justify-center md:rounded-lg w-full md:w-[70%] md:-mt-50 self-center md:shadow-md">
         <!-- Title -->
         <h2 class="text-4xl font-bold mb-2 leading-tight text-black">
             {{ $featuredPosts->title }}.

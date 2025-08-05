@@ -8,7 +8,7 @@
             </div>
 
             <!-- Footer Navigation -->
-            <div class="flex gap-16">
+            <div class="flex md:gap-16 gap-4 flex-col md:flex-row items-center">
                 <a href="{{route('welcome')}}" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Home</a>
                 <a href="" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Blogs</a>
                 

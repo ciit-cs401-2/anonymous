@@ -1,4 +1,4 @@
-<div class="flex gap-12 w-full">
+<div class="flex flex-col md:flex-row gap-12 w-full">
     @foreach ($recentPosts->take(3) as $post)
     <div class="flex-1 flex flex-col gap-8 hover:scale-105 transition-all"> {{-- Adjust background color --}}
         <div class="w-full">

@@ -1,4 +1,4 @@
-<div class="space-y-6 grid grid-cols-3 gap-12">
+<div class="space-y-6 grid grid-cols-1 md:grid-cols-3 gap-12">
     @foreach ($mostPopular->take(3) as $post)
     <div class="flex flex-col gap-8 hover:scale-105 transition-all"> {{-- Adjust background color --}}
         <div class="w-full">

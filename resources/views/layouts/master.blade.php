@@ -16,10 +16,10 @@
     @endif
 </head>
 
-<body class="text-black"> {{-- Adjust background color to match design --}}
+<body class="text-black w-full"> {{-- Adjust background color to match design --}}
     @include('components.navigation')
 
-    <main class="">
+    <main class="w-full">
         @yield('content')
     </main>
 
