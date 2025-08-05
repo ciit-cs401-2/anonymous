@@ -10,7 +10,7 @@
             <img src="{{ $post->featured_image_url }}" 
                  alt="{{ $post->title }}" 
                  class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <!-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> -->
         @else
             <div class="w-full h-full bg-gradient-to-br from-[#24263b] to-[#0f0f23]"></div>
         @endif
@@ -58,7 +58,7 @@
         @if($post->categories->count() > 0 || $post->tags->count() > 0)
         <div class="mb-8 flex flex-wrap gap-4">
             @foreach($post->categories as $category)
-            <span class="bg-[#e94560] text-white px-3 py-1 rounded-full text-sm font-medium">
+            <span class="bg-[#2C9A7A] text-white px-3 py-1 rounded-full text-sm font-medium">
                 {{ $category->name }}
             </span>
             @endforeach
@@ -106,7 +106,7 @@
         <div class="mt-16 pt-8 border-t border-gray-700">
             <div class="flex justify-between">
                 <a href="{{ route('post.index') }}" 
-                   class="flex items-center gap-2 text-[#2C9A7A] hover:text-white transition-colors">
+                   class="flex items-center gap-2 text-[#2C9A7A] hover:text-[#03503A] transition-colors">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
@@ -115,7 +115,7 @@
                 
                 <div class="flex gap-4">
                     <button onclick="sharePost()" 
-                            class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                            class="flex items-center gap-2 text-[#2C9A7A] hover:text-[#03503A] transition-colors">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path>
                         </svg>
@@ -173,7 +173,7 @@
         </form>
         @else
         <p class="text-gray-400 text-lg">
-            <a href="{{ route('login') }}" class="text-[#e94560] hover:underline">Log in</a> to leave a comment.
+            <a href="{{ route('login') }}" class="text-[#2C9A7A] hover:underline">Log in</a> to leave a comment.
         </p>
         @endauth
     </div>
