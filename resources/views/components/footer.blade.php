@@ -1,61 +1,59 @@
-<footer class="bg-[#24263b] py-10 mt-12"> {{-- Adjust background color --}}
-    <div class="container mx-auto px-4 flex flex-col md:flex-row gap-8 text-white">
-        <div class="col-span-1 md:col-span-2">
-            <div class="flex items-center mb-4">
-                <img src="{{ asset('logo.png') }}" alt="Logo" class="w-12 h-12 mr-3" />
-                <span class="text-3xl font-bold">Game Ako Chronicles</span>
+<footer class="text-black pb-10 mt-12 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]"> {{-- Adjust background color --}}
+    <div class="container mx-auto px-4 flex flex-col items-center gap-8">
+
+        <!-- Above Divider -->
+        <div class="border-b border-[#2C9A7A] w-full flex items-center justify-center flex-col gap-8 py-10">
+            <div class="flex items-center justify-center">
+                <img src="{{ asset('logo-horizontal.png') }}" alt="Logo" class="h-20" />
             </div>
-            <p class="text-gray-300 text-sm mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
-                necessitatibus similique aspernatur obcaecati veritatis. Aperiam cum porro sequi, totam minima
-                consequuntur, aspernatur deleniti vero repellendus dorales.</p>
-            <div class="flex space-x-4">
-                <a href="https://facebook.com" target="_blank" class="text-white hover:text-[#e94560]">
-                    <img src="https://img.icons8.com/ios-filled/30/ffffff/facebook-new.png" alt="Facebook"
-                        class="w-8 h-8" />
+
+            <!-- Footer Navigation -->
+            <div class="flex gap-16">
+                <a href="{{route('welcome')}}" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Home</a>
+                
+                {{-- Conditional display for logged-in user --}}
+                @auth {{-- This is a Laravel Blade directive to check if a user is authenticated --}}
+                <span class="">Welcome, {{ Auth::user()->name }}!</span>
+                <form action="{{route('logout')}}" method="POST" class="inline">
+                    @csrf
+                    <button type="submit" class="transition-all  hover:text-[#2C9A7A] text-md text-[#03503A]">Logout</button>
+                </form>
+                @else
+                <a href="{{route('login')}}" class="transition-all  hover:text-[#2C9A7A] text-md text-[#03503A]">Login</a>
+                <a href="{{route('register')}}" class="transition-all  hover:text-[#2C9A7A] text-md text-[#03503A]">Register</a>
+                @endauth
+
+                <a href="" class="transition-all text-md  hover:text-[#2C9A7A] text-[#03503A]">Contact Us</a>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="flex gap-4 transition-all">
+                <a href="https://facebook.com" target="_blank">
+                    <div class="transition-all w-10 h-10 flex items-center justify-center rounded-full bg-[#2C9A7A] text-white font-bold hover:bg-[#03503A]">
+                        FB
+                    </div>
                 </a>
-                <a href="https://instagram.com" target="_blank" class="text-white hover:text-[#e94560]">
-                    <img src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new--v1.png" alt="Instagram"
-                        class="w-8 h-8" />
+                <a href="https://instagram.com" target="_blank">
+                    <div class="transition-all w-10 h-10 flex items-center justify-center rounded-full bg-[#2C9A7A] text-white font-bold hover:bg-[#03503A]">
+                        IG
+                    </div>
                 </a>
-                <a href="https://tiktok.com" target="_blank" class="text-white hover:text-[#e94560]">
-                    <img src="https://img.icons8.com/ios-filled/30/ffffff/tiktok--v1.png" alt="Tiktok"
-                        class="w-8 h-8" />
+                <a href="https://tiktok.com" target="_blank">
+                    <div class="transition-all w-10 h-10 flex items-center justify-center rounded-full bg-[#2C9A7A] text-white font-bold hover:bg-[#03503A]">
+                        TK
+                    </div>
                 </a>
-                <a href="https://youtube.com" target="_blank" class="text-white hover:text-[#e94560]">
-                    <img src="https://img.icons8.com/ios-filled/30/ffffff/youtube-play--v1.png" alt="Youtube"
-                        class="w-8 h-8" />
+                <a href="https://youtube.com" target="_blank">
+                    <div class="transition-all w-10 h-10 flex items-center justify-center rounded-full bg-[#2C9A7A] text-white font-bold hover:bg-[#03503A]">
+                        YT
+                    </div>
                 </a>
             </div>
         </div>
 
-        <div>
-            <h4 class="text-xl font-bold mb-4">Links</h4>
-            <ul class="space-y-2 text-gray-300">
-                <li><a href="#" class="hover:text-[#e94560]">Homepage</a></li>
-                <li><a href="#" class="hover:text-[#e94560]">Blog</a></li>
-                <li><a href="#" class="hover:text-[#e94560]">About</a></li>
-                <li><a href="#" class="hover:text-[#e94560]">Contact</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4 class="text-xl font-bold mb-4">Tags</h4>
-            <ul class="space-y-2 text-gray-300">
-                <li><a href="#" class="hover:text-[#e94560]">Style</a></li>
-                <li><a href="#" class="hover:text-[#e94560]">Fashion</a></li>
-                <li><a href="#" class="hover:text-[#e94560]">Coding</a></li>
-                <li><a href="#" class="hover:text-[#e94560]">Travel</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4 class="text-xl font-bold mb-4">Social</h4>
-            <ul class="space-y-2 text-gray-300">
-                <li><a href="https://facebook.com" target="_blank" class="hover:text-[#e94560]">Facebook</a></li>
-                <li><a href="https://instagram.com" target="_blank" class="hover:text-[#e94560]">Instagram</a></li>
-                <li><a href="https://tiktok.com" target="_blank" class="hover:text-[#e94560]">Tiktok</a></li>
-                <li><a href="https://youtube.com" target="_blank" class="hover:text-[#e94560]">Youtube</a></li>
-            </ul>
-        </div>
+        <!-- Below Divider -->
+         <span class="text-[#03503A]">
+            Copyright Anonymous Inc. © 2025. All Right Reserved
+         </span>
     </div>
 </footer>
