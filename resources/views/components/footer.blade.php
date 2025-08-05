@@ -10,6 +10,7 @@
             <!-- Footer Navigation -->
             <div class="flex gap-16">
                 <a href="{{route('welcome')}}" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Home</a>
+                <a href="" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Blogs</a>
                 
                 {{-- Conditional display for logged-in user --}}
                 @auth {{-- This is a Laravel Blade directive to check if a user is authenticated --}}
@@ -22,8 +23,6 @@
                 <a href="{{route('login')}}" class="transition-all  hover:text-[#2C9A7A] text-md text-[#03503A]">Login</a>
                 <a href="{{route('register')}}" class="transition-all  hover:text-[#2C9A7A] text-md text-[#03503A]">Register</a>
                 @endauth
-
-                <a href="" class="transition-all text-md  hover:text-[#2C9A7A] text-[#03503A]">Read Blogs</a>
             </div>
 
             <!-- Social Media Links -->
