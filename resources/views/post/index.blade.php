@@ -36,7 +36,7 @@
     @endforelse
 
     <div class="mt-6">
-        {{ $posts->links() }}
+        {{ $posts->appends(request()->query())->links() }}
     </div>
 </div>
 @endsection
