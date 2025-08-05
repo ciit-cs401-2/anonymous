@@ -1,4 +1,4 @@
-<footer class="text-black pb-10 mt-12 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]"> {{-- Adjust background color --}}
+<footer class="text-black pb-10 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]"> {{-- Adjust background color --}}
     <div class="container mx-auto px-4 flex flex-col items-center gap-8">
 
         <!-- Above Divider -->
@@ -8,12 +8,12 @@
             </div>
 
             <!-- Footer Navigation -->
-            <div class="flex gap-16">
+            <div class="flex md:gap-16 gap-4 flex-col md:flex-row items-center">
                 <a href="{{route('welcome')}}" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Home</a>
                 <a href="{{route('post.index')}}" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Blogs</a>
                 
                 {{-- Conditional display for logged-in user --}}
-                @auth {{-- This is a Laravel Blade directive to check if a user is authenticated --}}
+                {{-- @auth
                 <span class="">Welcome, {{ Auth::user()->name }}!</span>
                 <form action="{{route('logout')}}" method="POST" class="inline">
                     @csrf
@@ -22,7 +22,7 @@
                 @else
                 <a href="{{route('login')}}" class="transition-all  hover:text-[#2C9A7A] text-md text-[#03503A]">Login</a>
                 <a href="{{route('register')}}" class="transition-all  hover:text-[#2C9A7A] text-md text-[#03503A]">Register</a>
-                @endauth
+                @endauth --}}
             </div>
 
             <!-- Social Media Links -->
