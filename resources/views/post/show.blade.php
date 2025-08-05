@@ -59,13 +59,13 @@
         <div class="mb-8 flex flex-wrap gap-4">
             @foreach($post->categories as $category)
             <span class="bg-[#e94560] text-white px-3 py-1 rounded-full text-sm font-medium">
-                {{ $category->name }}
+                {{ $category->category_name }}
             </span>
             @endforeach
             
             @foreach($post->tags as $tag)
             <span class="bg-[#24263b] text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-600">
-                #{{ $tag->name }}
+                #{{ $tag->tag_name }}
             </span>
             @endforeach
         </div>

@@ -14,13 +14,24 @@ class PostController extends Controller
     /**
      * Display a listing of the posts.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with(['categories', 'tags', 'user'])
-                    ->orderBy('publication_date', 'desc')
-                    ->paginate(10);
-        return view('post.index', compact('posts'));
+        $categoryId = $request->query('category');
+
+        $posts = Post::with('categories')
+            ->when($categoryId, function ($query, $categoryId) {
+                $query->whereHas('categories', function ($q) use ($categoryId) {
+                    $q->where('categories.id', $categoryId);
+                });
+            })
+            ->paginate(10)
+            ->withQueryString();
+
+        $categories = Category::all();
+
+        return view('post.index', compact('posts', 'categories'));
     }
+
 
     /**
      * Show the form for creating a new post.
