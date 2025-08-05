@@ -52,7 +52,7 @@
 
         <!-- Below Divider -->
          <span class="text-[#03503A]">
-            Copyright Anonymous Inc. © 2025. All Right Reserved
+            Copyright Anonymous Inc. © 2025. All Rights Reserved
          </span>
     </div>
 </footer>

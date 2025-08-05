@@ -3,7 +3,7 @@
 @section('title', $post->title)
 
 @section('content')
-<div class="min-h-screen bg-[#0f0f23] text-white">
+<div class="min-h-screen text-white">
     <!-- Hero Section with Featured Image -->
     <div class="relative h-96 md:h-[500px] bg-gradient-to-b from-transparent to-[#0f0f23]">
         @if($post->featured_image_url)
@@ -73,7 +73,7 @@
 
         <!-- Post Content -->
         <div class="prose prose-lg prose-invert max-w-none">
-            <div class="text-gray-300 leading-relaxed text-lg">
+            <div class="text-black leading-relaxed text-lg">
                 {!! nl2br(e($post->content)) !!}
             </div>
         </div>
@@ -106,7 +106,7 @@
         <div class="mt-16 pt-8 border-t border-gray-700">
             <div class="flex justify-between">
                 <a href="{{ route('post.index') }}" 
-                   class="flex items-center gap-2 text-[#e94560] hover:text-white transition-colors">
+                   class="flex items-center gap-2 text-[#2C9A7A] hover:text-white transition-colors">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
@@ -126,7 +126,7 @@
         </div>
     </div>
 
-    <!-- Comments Section (if you have comments) -->
+    <!-- Comments Section -->
     @if($post->comments->count() > 0)
     <div class="max-w-4xl mx-auto px-8 pb-16">
         <div class="border-t border-gray-700 pt-12">
@@ -135,15 +135,17 @@
             @foreach($post->comments as $comment)
             <div class="bg-[#24263b] rounded-lg p-6 mb-6">
                 <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 bg-[#e94560] rounded-full flex items-center justify-center">
+                    <div class="w-10 h-10 bg-[#2C9A7A] rounded-full flex items-center justify-center">
                         <span class="text-white font-bold">{{ substr($comment->user->name, 0, 1) }}</span>
                     </div>
                     <div class="flex-1">
                         <div class="flex items-center gap-2 mb-2">
                             <span class="font-medium text-white">{{ $comment->user->name }}</span>
-                            <span class="text-gray-400 text-sm">{{ $comment->created_at->format('M d, Y') }}</span>
+                            <span class="text-gray-400 text-sm">
+                                {{ \Carbon\Carbon::parse($comment->comment_date)->format('M d, Y') }}
+                            </span>
                         </div>
-                        <p class="text-gray-300">{{ $comment->content }}</p>
+                        <p class="text-white">{{ $comment->comment_content }}</p>
                     </div>
                 </div>
             </div>
@@ -151,6 +153,32 @@
         </div>
     </div>
     @endif
+
+  <div class="max-w-4xl mx-auto px-8 pb-16">
+    <div class="border-t border-gray-700 pt-12">
+        @auth
+        <h3 class="text-2xl font-bold mb-6">Leave a Comment</h3>
+        <form action="{{ route('comments.store', ['id' => $post->id]) }}" method="POST" class="space-y-6">
+          @csrf
+          <input type="hidden" name="post_id" value="{{ $post->id }}">
+          <div>
+              <label for="comment_content" class="block text-sm font-medium text-white mb-1">Your Comment</label>
+              <textarea name="comment_content" id="comment_content" rows="4" required
+                        class="w-full p-4 bg-[#1c1c2e] text-white rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#e94560]"></textarea>
+          </div>
+          <button type="submit"
+                  class="bg-[#e94560] hover:bg-[#c83750] text-white font-bold py-2 px-6 rounded-lg">
+              Post Comment
+          </button>
+        </form>
+        @else
+        <p class="text-gray-400 text-lg">
+            <a href="{{ route('login') }}" class="text-[#e94560] hover:underline">Log in</a> to leave a comment.
+        </p>
+        @endauth
+    </div>
+</div>
+
 </div>
 
 <script>

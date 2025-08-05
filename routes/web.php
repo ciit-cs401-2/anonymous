@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PostController;
@@ -17,6 +18,7 @@ Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('regi
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/blog', [PostController::class, 'index'])->name('post.index');
 Route::get('/blog/{id}', [PostController::class, 'show'])->name('post.show');
+Route::post('/blog/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
 
 // Authenticated routes (only accessible when logged in)
 Route::middleware('auth')->group(function () {
