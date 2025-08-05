@@ -43,7 +43,10 @@
     <div class="mt-16">
       <div class="flex justify-between items-center mb-8">
         <h3 class="text-3xl font-bold text-[#03503A]">Recent Posts</h3>
-        <button class="px-6 py-2 rounded-sm text-sm text-white bg-[#2C9A7A] hover:bg-[#03503A] cursor-pointer transition-all">View More</h3>
+            <a href="{{ route('post.index') }}"
+                class="px-6 py-2 rounded-sm text-sm text-white bg-[#2C9A7A] hover:bg-[#03503A] cursor-pointer transition-all">
+                View More
+            </a>
       </div>
       @include('components.recent-posts', ['recentPosts' => $recentPosts])
     </div>
@@ -52,7 +55,10 @@
     <div class="mt-16">
       <div class="flex justify-between items-center mb-8">
         <h3 class="text-3xl font-bold text-[#03503A]">Most Popular</h3>
-        <button class="px-6 py-2 rounded-sm text-sm text-white bg-[#2C9A7A] hover:bg-[#03503A] cursor-pointer transition-all">View More</h3>
+            <a href="{{ route('post.index') }}"
+                class="px-6 py-2 rounded-sm text-sm text-white bg-[#2C9A7A] hover:bg-[#03503A] cursor-pointer transition-all">
+                View More
+            </a>
       </div>
       @include('components.most-popular', ['mostPopular' => $mostPopular])
     </div>

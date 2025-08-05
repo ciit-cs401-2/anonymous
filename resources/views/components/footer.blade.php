@@ -13,7 +13,7 @@
                 <a href="{{route('post.index')}}" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Blogs</a>
                 
                 {{-- Conditional display for logged-in user --}}
-                @auth {{-- This is a Laravel Blade directive to check if a user is authenticated --}}
+                {{-- @auth
                 <span class="">Welcome, {{ Auth::user()->name }}!</span>
                 <form action="{{route('logout')}}" method="POST" class="inline">
                     @csrf
@@ -22,7 +22,7 @@
                 @else
                 <a href="{{route('login')}}" class="transition-all  hover:text-[#2C9A7A] text-md text-[#03503A]">Login</a>
                 <a href="{{route('register')}}" class="transition-all  hover:text-[#2C9A7A] text-md text-[#03503A]">Register</a>
-                @endauth
+                @endauth --}}
             </div>
 
             <!-- Social Media Links -->
