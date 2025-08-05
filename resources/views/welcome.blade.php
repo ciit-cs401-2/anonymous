@@ -41,10 +41,14 @@
 
     <!-- Recent Posts -->
     <div class="mt-16">
+      <div class="flex justify-between items-center">
         <h3 class="text-3xl font-bold mb-6 text-[#03503A]">Recent Posts</h3>
-        @include('components.recent-posts', ['recentPosts' => $recentPosts])
+        <button class="px-6 py-2 rounded-sm text-sm text-white bg-[#2C9A7A] hover:bg-[#03503A] cursor-pointer transition-all">View More</h3>
+      </div>
+      @include('components.recent-posts', ['recentPosts' => $recentPosts])
     </div>
 
+    <!-- Most Popular -->
     <div class="flex flex-col gap-8 mt-8">
         <div>
             @include('components.most-popular', ['mostPopular' => $mostPopular])
