@@ -34,7 +34,7 @@
 
 
 <div class="container mx-auto px-4 py-16">
-    <h1 class="text-xs sm:text-5xl md:text-6xl font-extrabold text-[#03503A] mb-12">Featured Post</h1>
+    <h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#03503A] mb-8">Featured Post</h1>
     @include('components.featured-post', ['featuredPosts' => $featuredPosts])
 
     <h2 class="text-3xl font-bold mb-6 text-[#03503A]">Discover Game Ako featured stories</h2>
