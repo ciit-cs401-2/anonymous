@@ -26,7 +26,7 @@
     <button
       class="mt-6 px-10 py-3 rounded-md text-md bg-white text-[#03503A] cursor-pointer hover:bg-neutral-100 transition-all"
     >
-      Read More
+      Start Reading
     </button>
   </div>
 </div>
@@ -34,14 +34,18 @@
 
 
 <div class="container mx-auto px-4 py-16">
+
+    <!-- Featured Post -->
     <h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#03503A] mb-8">Featured Post</h1>
     @include('components.featured-post', ['featuredPosts' => $featuredPosts])
 
-    <h2 class="text-3xl font-bold mb-6 text-[#03503A]">Discover Game Ako featured stories</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-        <div class="md:col-span-2">
-            @include('components.recent-posts', ['recentPosts' => $recentPosts])
-        </div>
+    <!-- Recent Posts -->
+    <div class="mt-16">
+        <h3 class="text-3xl font-bold mb-6 text-[#03503A]">Recent Posts</h3>
+        @include('components.recent-posts', ['recentPosts' => $recentPosts])
+    </div>
+
+    <div class="flex flex-col gap-8 mt-8">
         <div>
             @include('components.most-popular', ['mostPopular' => $mostPopular])
             @include('components.categories', ['categories' => $categories])
