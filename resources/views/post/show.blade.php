@@ -59,13 +59,13 @@
         <div class="mb-8 flex flex-wrap gap-4">
             @foreach($post->categories as $category)
             <span class="bg-[#2C9A7A] text-white px-3 py-1 rounded-full text-sm font-medium">
-                {{ $category->name }}
+                {{ $category->category_name }}
             </span>
             @endforeach
             
             @foreach($post->tags as $tag)
             <span class="bg-[#24263b] text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-600">
-                #{{ $tag->name }}
+                #{{ $tag->tag_name }}
             </span>
             @endforeach
         </div>
@@ -127,56 +127,59 @@
     </div>
 
     <!-- Comments Section -->
-    @if($post->comments->count() > 0)
-    <div class="max-w-4xl mx-auto px-8 pb-16">
-        <div class="border-t border-gray-700 pt-12">
-            <h3 class="text-2xl font-bold mb-8">Comments ({{ $post->comments->count() }})</h3>
-            
-            @foreach($post->comments as $comment)
-            <div class="bg-[#24263b] rounded-lg p-6 mb-6">
-                <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 bg-[#2C9A7A] rounded-full flex items-center justify-center">
-                        <span class="text-white font-bold">{{ substr($comment->user->name, 0, 1) }}</span>
+@if($post->comments->count() > 0)
+<div class="max-w-4xl mx-auto px-8 pb-16">
+    <div class="border-t border-gray-200 pt-12">
+        <h3 class="text-2xl font-bold text-gray-800 mb-8">Comments ({{ $post->comments->count() }})</h3>
+        
+        @foreach($post->comments as $comment)
+        <div class="bg-gray-100 rounded-lg p-6 mb-6">
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-[#2C9A7A] text-white rounded-full flex items-center justify-center">
+                    <span class="font-bold">{{ substr($comment->user->name, 0, 1) }}</span>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="font-medium text-gray-800">{{ $comment->user->name }}</span>
+                        <span class="text-gray-500 text-sm">
+                            {{ \Carbon\Carbon::parse($comment->comment_date)->format('M d, Y') }}
+                        </span>
                     </div>
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="font-medium text-white">{{ $comment->user->name }}</span>
-                            <span class="text-gray-400 text-sm">
-                                {{ \Carbon\Carbon::parse($comment->comment_date)->format('M d, Y') }}
-                            </span>
-                        </div>
-                        <p class="text-white">{{ $comment->comment_content }}</p>
-                    </div>
+                    <p class="text-gray-700">{{ $comment->comment_content }}</p>
                 </div>
             </div>
-            @endforeach
         </div>
+        @endforeach
     </div>
-    @endif
+</div>
+@endif
 
-  <div class="max-w-4xl mx-auto px-8 pb-16">
-    <div class="border-t border-gray-700 pt-12">
+<!-- Leave a Comment Section -->
+<div class="max-w-4xl mx-auto px-8 pb-16">
+    <div class="border-t border-gray-200 pt-12">
         @auth
-        <h3 class="text-2xl font-bold mb-6">Leave a Comment</h3>
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">Leave a Comment</h3>
         <form action="{{ route('comments.store', ['id' => $post->id]) }}" method="POST" class="space-y-6">
-          @csrf
-          <input type="hidden" name="post_id" value="{{ $post->id }}">
-          <div>
-              <label for="comment_content" class="block text-sm font-medium text-white mb-1">Your Comment</label>
-              <textarea name="comment_content" id="comment_content" rows="4" required
-                        class="w-full p-4 bg-[#1c1c2e] text-white rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#e94560]"></textarea>
-          </div>
-          <button type="submit"
-                  class="bg-[#e94560] hover:bg-[#c83750] text-white font-bold py-2 px-6 rounded-lg">
-              Post Comment
-          </button>
+            @csrf
+            <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <div>
+                <label for="comment_content" class="block text-sm font-medium text-gray-700 mb-1">Your Comment</label>
+                <textarea name="comment_content" id="comment_content" rows="4" required
+                          class="w-full p-4 bg-white text-gray-800 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2C9A7A]"></textarea>
+            </div>
+            <button type="submit"
+                    class="bg-[#2C9A7A] hover:bg-[#238d69] text-white font-bold py-2 px-6 rounded-lg transition-colors">
+                Post Comment
+            </button>
         </form>
         @else
-        <p class="text-gray-400 text-lg">
+        <p class="text-gray-600 text-lg">
             <a href="{{ route('login') }}" class="text-[#2C9A7A] hover:underline">Log in</a> to leave a comment.
         </p>
         @endauth
     </div>
+</div>
+
 </div>
 
 </div>
