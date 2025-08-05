@@ -23,7 +23,7 @@
                 <a href="{{route('register')}}" class="transition-all  hover:text-[#2C9A7A] text-md text-[#03503A]">Register</a>
                 @endauth
 
-                <a href="" class="transition-all text-md  hover:text-[#2C9A7A] text-[#03503A]">Contact Us</a>
+                <a href="" class="transition-all text-md  hover:text-[#2C9A7A] text-[#03503A]">Read Blogs</a>
             </div>
 
             <!-- Social Media Links -->

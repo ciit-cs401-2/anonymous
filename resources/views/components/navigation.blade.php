@@ -18,22 +18,7 @@
             @endauth
 
             <!-- Contact Us -->
-            <button class="text-md text-white px-8 py-3 bg-[#2C9A7A] rounded-md cursor-pointer hover:bg-[#03503A] transition-all">Contact Us</button>
-
-            {{-- Social Media Icons and Links --}}
-            <!-- <div class="flex space-x-3 ml-4">
-                <a href="{{env('FACEBOOK_URL')}}" target="_blank" class=" hover:text-[#03503A]">
-                    <img src="https://img.icons8.com/ios-filled/24/2C9A7A/facebook-new.png" alt="Facebook"
-                        class="w-6 h-6" />
-                </a>
-                <a href="https://twitter.com" target="_blank" class=" hover:text-[#03503A]">
-                    <img src="https://img.icons8.com/ios-filled/24/2C9A7A/twitter.png" alt="Twitter" class="w-6 h-6" />
-                </a>
-                <a href="https://instagram.com" target="_blank" class=" hover:text-[#03503A]">
-                    <img src="https://img.icons8.com/ios-filled/24/2C9A7A/instagram-new--v1.png" alt="Instagram"
-                        class="w-6 h-6" />
-                </a>
-            </div> -->
+            <button class="text-md text-white px-8 py-3 bg-[#2C9A7A] rounded-md cursor-pointer hover:bg-[#03503A] transition-all">Read Blogs</button>
         </div>
     </div>
 </nav>
