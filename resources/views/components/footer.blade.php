@@ -1,4 +1,4 @@
-<footer class="text-black pb-10 mt-12 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]"> {{-- Adjust background color --}}
+<footer class="text-black pb-10 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]"> {{-- Adjust background color --}}
     <div class="container mx-auto px-4 flex flex-col items-center gap-8">
 
         <!-- Above Divider -->

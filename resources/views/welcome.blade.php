@@ -3,6 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
+<!-- Hero Section -->
 <div
   class="relative w-full min-h-[400px] flex flex-col gap-12 items-center justify-center text-center overflow-hidden"
 >
@@ -31,12 +32,9 @@
   </div>
 </div>
 
-
-
 <div class="container mx-auto px-4 py-16">
-
     <!-- Featured Post -->
-    <h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#03503A] mb-8">Featured Post</h1>
+    <h3 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#03503A] mb-8">Featured Post</h3>
     @include('components.featured-post', ['featuredPosts' => $featuredPosts])
 
     <!-- Recent Posts -->
@@ -49,11 +47,53 @@
     </div>
 
     <!-- Most Popular -->
-    <div class="flex flex-col gap-8 mt-8">
-        <div>
-            @include('components.most-popular', ['mostPopular' => $mostPopular])
-            @include('components.categories', ['categories' => $categories])
-        </div>
+    <div class="mt-16">
+      <div class="flex justify-between items-center">
+        <h3 class="text-3xl font-bold mb-6 text-[#03503A]">Most Popular</h3>
+        <button class="px-6 py-2 rounded-sm text-sm text-white bg-[#2C9A7A] hover:bg-[#03503A] cursor-pointer transition-all">View More</h3>
+      </div>
+      @include('components.most-popular', ['mostPopular' => $mostPopular])
     </div>
+</div>
+
+<!-- Mailing List -->
+<div
+  class="relative w-full min-h-[400px] flex flex-col gap-12 items-center justify-center text-center overflow-hidden"
+>
+  <!-- Background Image -->
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('{{ asset('mailing.png') }}');"
+  ></div>
+
+  <!-- Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#2c9a7a]/60 to-[#1e6f5a]/80"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col gap-4 items-center w-full px-4">
+    <h1 class="text-5xl text-white font-extrabold text-center">
+      Get our stories delivered from us to your inbox weekly.
+    </h1>
+
+    <h2 class="text-lg text-white opacity-75 font-regular text-center">
+      Enter your email to subscribe to our mailing list!
+    </h2>
+
+    <!-- Input and Button -->
+    <form class="w-full max-w-md flex flex-col sm:flex-row items-center gap-2">
+      <input
+        type="email"
+        placeholder="Enter your email"
+        class="w-full px-4 py-3 text-white placeholder-white bg-[#03503A] border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:border-white"
+        required
+      />
+      <button
+        type="submit"
+        class="bg-white text-[#03503A] font-semibold px-6 py-3 rounded-md hover:bg-neutral-100 transition"
+      >
+        Subscribe
+      </button>
+    </form>
+  </div>
 </div>
 @endsection
