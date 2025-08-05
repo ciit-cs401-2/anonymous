@@ -34,8 +34,11 @@
         </p>
 
         <!-- Button -->
-        <button class="bg-[#2C9A7A] hover:bg-[#03503A] text-white font-bold py-2 px-6 rounded-lg self-start">
-            Read More
-        </button>
+        <a href="{{ route('post.show', $featuredPosts->id) }}">
+            <button class="bg-[#2C9A7A] hover:bg-[#03503A] text-white font-bold py-2 px-6 rounded-lg self-start">
+                Read More
+            </button>
+        </a>
+
     </div>
 </div>

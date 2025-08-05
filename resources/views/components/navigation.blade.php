@@ -19,7 +19,7 @@
         <!-- Desktop Nav Items -->
         <div class="hidden sm:flex items-center space-x-6">
             <a href="{{ route('welcome') }}" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold">Home</a>
-            <a href="#" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold">Blogs</a>
+            <a href="{{route('post.index')}}" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold">Blogs</a>
 
             @auth
                 <span class="text-[#03503A] text-sm font-semibold">Welcome, {{ Auth::user()->name }}!</span>
@@ -46,7 +46,7 @@
     <!-- Mobile Nav (Hidden by Default) -->
     <div id="mobile-menu" class="sm:hidden hidden flex flex-col items-start space-y-4 px-6 mt-4">
         <a href="{{ route('welcome') }}" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold self-center">Home</a>
-        <a href="#" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold self-center">Blogs</a>
+        <a href="{{route('post.index')}}" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold self-center">Blogs</a>
 
         @auth
             <span class="text-[#03503A] text-sm font-semibold self-center">Welcome, {{ Auth::user()->name }}!</span>

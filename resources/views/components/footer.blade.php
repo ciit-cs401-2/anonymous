@@ -10,7 +10,7 @@
             <!-- Footer Navigation -->
             <div class="flex md:gap-16 gap-4 flex-col md:flex-row items-center">
                 <a href="{{route('welcome')}}" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Home</a>
-                <a href="" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Blogs</a>
+                <a href="{{route('post.index')}}" class="transition-all text-md hover:text-[#2C9A7A] text-[#03503A]">Blogs</a>
                 
                 {{-- Conditional display for logged-in user --}}
                 @auth {{-- This is a Laravel Blade directive to check if a user is authenticated --}}
@@ -52,7 +52,7 @@
 
         <!-- Below Divider -->
          <span class="text-[#03503A]">
-            Copyright Anonymous Inc. © 2025. All Right Reserved
+            Copyright Anonymous Inc. © 2025. All Rights Reserved
          </span>
     </div>
 </footer>

@@ -25,7 +25,7 @@
             <p class="text-neutral-500 text-sm mb-3">{{Str::limit($post->content, 150)}}</p>
 
             <!-- Read More -->
-            <a href="#" class="text-[#2C9A7A] hover:underline text-sm">Read More</a>
+            <a href="{{ route('post.show', $post->id) }}" class="text-[#2C9A7A] hover:underline text-sm">Read More</a>
         </div>
     </div>
     @endforeach

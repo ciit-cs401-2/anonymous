@@ -24,11 +24,13 @@
     <h2 class="text-md md:text-lg text-white opacity-75 font-regular">
       Learn to Stretch Your Allowance and Build Real-World Money Skills.
     </h2>
-    <button
-      class="px-10 py-3 rounded-md text-md bg-white text-[#03503A] cursor-pointer hover:bg-neutral-100 transition-all"
-    >
-      Start Reading
-    </button>
+    <a href="{{ route('post.index') }}">
+      <button
+        class="px-10 py-3 rounded-md text-md bg-white text-[#03503A] cursor-pointer hover:bg-neutral-100 transition-all"
+      >
+        Start Reading
+      </button>
+    </a>
   </div>
 </div>
 
