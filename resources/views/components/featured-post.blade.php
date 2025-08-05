@@ -1,3 +1,4 @@
+@if ($featuredPosts)
 <div class="bg-[#24263b] rounded-lg shadow-lg overflow-hidden md:flex"> {{-- Adjust background color --}}
     <div class="md:flex-shrink-0">
         <img class="h-full w-full object-cover md:w-96" src="{{$featuredPosts->featured_image_url}}"
@@ -10,3 +11,6 @@
             More</button>
     </div>
 </div>
+@endif
+
+{{-- Featured Post Component --}}

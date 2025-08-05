@@ -3,47 +3,62 @@
 @section('title', 'Register')
 
 @section('content')
-<div class="flex items-center justify-center min-h-screen">
-    <div class="bg-[#24263b] p-8 rounded-lg shadow-lg w-full max-w-md"> {{-- Adjust background color --}}
-        <h2 class="text-3xl font-bold mb-6 text-center text-white">Register</h2>
-        <form action="{{ route('register') }}" method="POST">
+<div class="flex items-center justify-center min-h-screen bg-[#121212] px-4">
+    <div class="bg-[#1e1e2f] p-8 rounded-lg shadow-lg w-full max-w-md text-white">
+
+        {{-- Title --}}
+        <h2 class="text-3xl font-bold mb-6 text-center text-green-400">Create Account</h2>
+
+        {{-- Form --}}
+        <form action="{{ route('register') }}" method="POST" class="space-y-4">
             @csrf
-            <div class="mb-4">
-                <label for="name" class="block text-white text-sm font-bold mb-2">Name:</label>
+
+            {{-- Name --}}
+            <div>
+                <label for="name" class="block text-sm mb-1 text-green-200">Name</label>
                 <input type="text" id="name" name="name"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-50 leading-tight focus:outline-none focus:shadow-outline bg-[#3a3f5c]"
-                    placeholder="Enter your name"> {{-- Adjust input background --}}
+                    class="w-full py-2 px-3 rounded bg-[#2c2f4a] text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+                    placeholder="Enter your name" required>
             </div>
-            <div class="mb-4">
-                <label for="email" class="block text-white text-sm font-bold mb-2">Email:</label>
+
+            {{-- Email --}}
+            <div>
+                <label for="email" class="block text-sm mb-1 text-green-200">Email</label>
                 <input type="email" id="email" name="email"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-50 leading-tight focus:outline-none focus:shadow-outline bg-[#3a3f5c]"
-                    placeholder="Enter your email"> {{-- Adjust input background --}}
+                    class="w-full py-2 px-3 rounded bg-[#2c2f4a] text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+                    placeholder="Enter your email" required>
             </div>
-            <div class="mb-4">
-                <label for="password" class="block text-white text-sm font-bold mb-2">Password:</label>
+
+            {{-- Password --}}
+            <div>
+                <label for="password" class="block text-sm mb-1 text-green-200">Password</label>
                 <input type="password" id="password" name="password"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-50 mb-3 leading-tight focus:outline-none focus:shadow-outline bg-[#3a3f5c]"
-                    placeholder="Enter your password"> {{-- Adjust input background --}}
+                    class="w-full py-2 px-3 rounded bg-[#2c2f4a] text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+                    placeholder="Enter your password" required>
             </div>
-            <div class="mb-6">
-                <label for="password_confirmation" class="block text-white text-sm font-bold mb-2">Confirm
-                    Password:</label>
+
+            {{-- Confirm Password --}}
+            <div>
+                <label for="password_confirmation" class="block text-sm mb-1 text-green-200">Confirm Password</label>
                 <input type="password" id="password_confirmation" name="password_confirmation"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-50 mb-3 leading-tight focus:outline-none focus:shadow-outline bg-[#3a3f5c]"
-                    placeholder="Confirm your password"> {{-- Adjust input background --}}
+                    class="w-full py-2 px-3 rounded bg-[#2c2f4a] text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+                    placeholder="Confirm your password" required>
             </div>
-            <div class="flex items-center justify-between">
+
+            {{-- Register Button --}}
+            <div>
                 <button type="submit"
-                    class="bg-[#e94560] hover:bg-[#c2364e] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded transition duration-200">
                     Register
                 </button>
-                <a class="inline-block align-baseline font-bold text-sm text-[#e94560] hover:text-[#c2364e]"
-                    href="{{route('login')}}">
-                    Already have an account? Login
-                </a>
             </div>
         </form>
+
+        {{-- Login Link --}}
+        <p class="text-center text-sm text-green-200 mt-4">
+            Already have an account?
+            <a href="{{ route('login') }}" class="text-green-400 hover:text-green-300 font-semibold">Login</a>
+        </p>
     </div>
 </div>
 @endsection
