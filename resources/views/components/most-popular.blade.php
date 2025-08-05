@@ -1,43 +1,32 @@
-<div class="mt-8">
-    <p class="text-gray-400 text-lg mb-2">What's hot</p>
-    <h3 class="text-4xl font-bold mb-6 text-white">Most Popular</h3>
-
-    <div class="space-y-6">
-        @foreach ($mostPopular as $post)
-        <div class="bg-[#24263b] p-4 rounded-lg shadow-md"> {{-- Adjust background color --}}
-            <span class="text-white text-xs font-semibold px-2.5 py-0.5 rounded
-                @php
-                    $categoryColor = '';
-                    switch(strtolower($post->categories()->first()->category_name)) {
-                        case 'news':
-                            $categoryColor = 'bg-[#e94560]';
-                            break;
-                        case 'podcast':
-                            $categoryColor = 'bg-[#4285F4]';
-                            break;
-                        case 'review':
-                            $categoryColor = 'bg-[#FFD700]';
-                            break;
-                        case 'coverage':
-                            $categoryColor = 'bg-[#FF9800]';
-                            break;
-                        case 'interview':
-                            $categoryColor = 'bg-[#4CAF50]';
-                            break;
-                        case 'commentary':
-                            $categoryColor = 'bg-[#9C27B0]';
-                            break;
-                        default:
-                            $categoryColor = 'bg-gray-500';
-                            break;
-                    }
-                    echo $categoryColor;
-                @endphp
-                ">{{$post->categories()->first()->category_name}}</span>
-            <h4 class="text-xl font-bold mt-2 text-white">{{$post->title}}</h4>
-            <p class="text-gray-400 text-sm">{{$post->user->name}} -
-                {{date('d.m.Y', strtotime($post->publication_date)) }}</p>
+<div class="space-y-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+    @foreach ($mostPopular->take(3) as $post)
+    <div class="flex flex-col gap-8 hover:scale-105 transition-all"> {{-- Adjust background color --}}
+        <div class="w-full">
+            <img class="w-full aspect-square object-cover rounded-lg" src="{{$post->featured_image_url}}" alt="Recent Post Image">
         </div>
-        @endforeach
+        <div>
+            <!-- Title -->
+            <h4 class="text-xl font-bold mb-2 text-black">{{$post->title}}</h4>
+
+            <!-- Date & Views -->
+            <div class="text-sm text-[#2C9A7A] mb-2 flex items-center gap-4">
+                <span class="uppercase font-bold">{{ $post->categories()->first()->category_name }}</span> • 
+                <span>{{ \Carbon\Carbon::parse($post->publication_date)->format('F j, Y') }}</span>
+                <span class="flex items-center gap-1">
+                    <svg class="w-4 h-4 text-[#2C9A7A]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2C5 2 1.73 7.11 1 10c.73 2.89 4 8 9 8s8.27-5.11 9-8c-.73-2.89-4-8-9-8zm0 14c-3.31 0-6.31-3.07-7.41-6C3.69 7.07 6.69 4 10 4s6.31 3.07 7.41 6c-1.1 2.93-4.1 6-7.41 6zm0-10a4 4 0 100 8 4 4 0 000-8z"/></svg>
+                    {{ number_format($post->views_count) }} views
+                </span>
+            </div>
+
+            <!-- Author -->
+            <p class="text-[#2C9A7A] mb-6">By {{ $post->user->name }}</p>
+
+            <!-- Content -->
+            <p class="text-neutral-500 text-sm mb-3">{{Str::limit($post->content, 150)}}</p>
+
+            <!-- Read More -->
+            <a href="#" class="text-[#2C9A7A] hover:underline text-sm">Read More</a>
+        </div>
     </div>
+    @endforeach
 </div>
