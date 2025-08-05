@@ -8,7 +8,7 @@
             {{$post->categories()->first()->category_name}}</p>
         <h4 class="text-xl font-bold mb-2 text-white">{{$post->title}}</h4>
         <p class="text-gray-300 text-sm mb-3">{{Str::limit($post->content, 300)}}</p>
-        <a href="#" class="text-[#e94560] hover:underline text-sm">Read More</a>
+        <a href="{{ route('post.show', $post->id) }}" class="text-[#e94560] hover:underline text-sm">Read More</a>
     </div>
     {{-- You can repeat the above structure for more recent posts --}}
 </div>
