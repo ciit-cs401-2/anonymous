@@ -18,7 +18,7 @@
         <!-- Title Overlay -->
         <div class="absolute bottom-0 left-0 right-0 p-8 md:p-16">
             <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight drop-shadow-lg">
                     {{ $post->title }}
                 </h1>
                 

@@ -23,6 +23,21 @@
 
             @auth
                 <span class="text-[#03503A] text-sm font-semibold">Welcome, {{ Auth::user()->name }}!</span>
+                <a href="{{ route('profile.index') }}"
+                class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg transition-all hover:shadow-xl">
+                    {{-- Either the user’s initial… --}}
+                    <span class="text-xl font-bold text-[#03503A]">
+                        {{ substr(Auth::user()->name, 0, 1) }}
+                    </span>
+
+                    {{-- …or swap it for your SVG icon (just center it) --}}
+                    {{-- 
+                    <svg class="w-8 h-8 text-[#03503A]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6…"/>
+                    </svg>
+                    --}}
+                </a>
+
                 <form action="{{ route('logout') }}" method="POST" class="inline">
                     @csrf
                     <button type="submit"
