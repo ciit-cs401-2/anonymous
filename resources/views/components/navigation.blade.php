@@ -4,7 +4,7 @@
                 class="h-20"></a></div>
         <div class="flex items-center space-x-12">
             <a href="{{route('welcome')}}" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold">Home</a>
-            <a href="" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold">Blogs</a>
+            <a href="{{route('post.index')}}" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold">Blogs</a>
 
             {{-- Conditional display for logged-in user --}}
             @auth {{-- This is a Laravel Blade directive to check if a user is authenticated --}}
