@@ -64,24 +64,39 @@
         <a href="{{route('post.index')}}" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold self-center">Blogs</a>
 
         @auth
-            <span class="text-[#03503A] text-sm font-semibold self-center">Welcome, {{ Auth::user()->name }}!</span>
-            <form action="{{ route('logout') }}" method="POST" class="inline self-center">
-                @csrf
-                <button type="submit"
+                <span class="self-center text-[#03503A] text-sm font-semibold">Welcome, {{ Auth::user()->name }}!</span>
+                <a href="{{ route('profile.index') }}"
+                class="self-center w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg transition-all hover:shadow-xl">
+                    {{-- Either the user’s initial… --}}
+                    <span class="text-xl font-bold text-[#03503A]">
+                        {{ substr(Auth::user()->name, 0, 1) }}
+                    </span>
+
+                    {{-- …or swap it for your SVG icon (just center it) --}}
+                    {{-- 
+                    <svg class="w-8 h-8 text-[#03503A]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6…"/>
+                    </svg>
+                    --}}
+                </a>
+
+                <form action="{{ route('logout') }}" method="POST" class="self-center inline">
+                    @csrf
+                    <button type="submit"
+                        class="text-md text-white px-6 py-2 bg-[#2C9A7A] rounded-md hover:bg-[#03503A] transition-all">
+                        Logout
+                    </button>
+                </form>
+            @else
+                <a href="{{ route('login') }}"
                     class="text-md text-white px-6 py-2 bg-[#2C9A7A] rounded-md hover:bg-[#03503A] transition-all">
-                    Logout
-                </button>
-            </form>
-        @else
-            <a href="{{ route('login') }}"
-                class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold self-center">
-                Login
-            </a>
-            <a href="{{ route('register') }}"
-                class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold self-center">
-                Register
-            </a>
-        @endauth
+                    Login
+                </a>
+                <a href="{{ route('register') }}"
+                    class="text-md text-[#2C9A7A] px-6 py-2 border border-[#2C9A7A] hover:border-[#03503A] rounded-md hover:bg-[#03503A] hover:text-white transition-all">
+                    Register
+                </a>
+            @endauth
     </div>
 </nav>
 

@@ -5,7 +5,7 @@
 @section('content')
 <div class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
-    <div class="relative w-full min-h-[300px] flex flex-col items-center justify-center text-center overflow-hidden">
+    <div class="py-8 relative w-full min-h-[300px] flex flex-col items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-[#2c9a7a] to-[#03503A]"></div>
         
         <div class="relative z-10 flex flex-col gap-4 items-center">
