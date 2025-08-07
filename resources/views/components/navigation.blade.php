@@ -22,7 +22,7 @@
             <a href="{{route('post.index')}}" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold">Blogs</a>
 
             @auth
-                <span class="text-[#03503A] text-sm font-semibold">Welcome, {{ Auth::user()->name }}!</span>
+                <span class="text-[#03503A] text-md font-bold">Welcome, {{ Auth::user()->name }}!</span>
                 <a href="{{ route('profile.index') }}"
                 class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg transition-all hover:shadow-xl">
                     {{-- Either the user’s initial… --}}
@@ -64,7 +64,7 @@
         <a href="{{route('post.index')}}" class="hover:text-[#2C9A7A] text-[#03503A] text-md font-bold self-center">Blogs</a>
 
         @auth
-                <span class="self-center text-[#03503A] text-sm font-semibold">Welcome, {{ Auth::user()->name }}!</span>
+                <span class="self-center text-[#03503A] text-md font-bold">Welcome, {{ Auth::user()->name }}!</span>
                 <a href="{{ route('profile.index') }}"
                 class="self-center w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg transition-all hover:shadow-xl">
                     {{-- Either the user’s initial… --}}
